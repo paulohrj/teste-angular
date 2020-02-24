@@ -1,0 +1,14 @@
+.cliente-form {
+    margin: 20px;
+    max-width: 500px;
+    min-width: 150px;
+    width: 100%;
+}
+  
+.cliente-form-full-width {
+    width: 100%;
+}
+ 
+.botao-salvar{
+    margin-left: 20px;
+}

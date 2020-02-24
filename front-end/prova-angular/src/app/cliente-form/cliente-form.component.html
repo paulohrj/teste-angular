@@ -1,0 +1,34 @@
+<mat-list>
+    <mat-list-item>Cliente</mat-list-item>
+    <mat-divider></mat-divider>
+    <form [formGroup]="formGroup" class="cliente-form">
+
+        <mat-form-field class="cliente-form-full-width">
+            <mat-label>Nome</mat-label>
+            <input matInput formControlName="nome" placeholder="Ex. João">
+            <mat-error *ngIf="formGroup.get('nome').hasError('required')"> Nome é <strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="cliente-form-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+            <mat-error *ngIf="formGroup.get('email').hasError('required')"> Email é <strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="cliente-form-full-width">
+            <mat-label>CPF</mat-label>
+            <input matInput formControlName="cpf" placeholder="Ex. João">
+            <mat-error *ngIf="formGroup.get('cpf').hasError('required')"> CPF é <strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Data Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="dataNascimento">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="formGroup.get('dataNascimento').hasError('required')"> Data Nascimento é <strong>obrigatório</strong></mat-error>
+        </mat-form-field>
+    </form>
+    <button class="botao-salvar" (click)="cancelar()" mat-raised-button color="basic">Cancelar</button>
+    <button class="botao-salvar" (click)="salvar()" mat-raised-button color="primary">Salvar</button>
+</mat-list>
